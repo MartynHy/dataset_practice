@@ -7,6 +7,7 @@ def data_imp(file_path = input('type in dataset path'), etykiety = input('does i
 
     data_list = []
     header_list = []
+    a = len(data_list) + 1
     counter = 0
 
     for linia in f:
@@ -23,7 +24,8 @@ def data_imp(file_path = input('type in dataset path'), etykiety = input('does i
             
             data_list.append(linia_edited2)
 
-    return header_list
+    return header_list and data_list and a
+    
     
 
 def header_check():
@@ -40,3 +42,14 @@ def header_check():
     
         for i in header_list:
             print(i)
+
+def data_browser(start = 0, stop = None):
+
+    data_list = data_imp()
+
+    print(f'Dataset holds {len(data_list)} records total, indexed from "0"')
+
+    print('Requested records are:')
+
+    for i in data_list[start:stop]:
+        print(i)
