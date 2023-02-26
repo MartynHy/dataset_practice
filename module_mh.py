@@ -1,6 +1,7 @@
 #funkcja wczytująca dataset
 
-def data_imp(file_path = input('type in dataset path'), headers = input('does it contain headers? (Y/N)')):
+def data_imp(file_path = input('type in dataset path'), headers = input('does it contain headers? (Y/N)'),
+              separator = input('type in separator')):
     
     f = open(file_path, 'r')
 
@@ -11,7 +12,7 @@ def data_imp(file_path = input('type in dataset path'), headers = input('does it
     for line in f:
 
         line_edited = line.replace('\n', '')
-        line_edited2 = line_edited.split(',')
+        line_edited2 = line_edited.split(separator)
 
         if headers == 'Y' and counter == 0:
 
@@ -24,7 +25,7 @@ def data_imp(file_path = input('type in dataset path'), headers = input('does it
     
     data_list.pop() #pozbycie się pustej listy
     
-    return (header_list, data_list)
+    return header_list, data_list
 
 
 def header_check():
@@ -99,7 +100,7 @@ def data_split(tr = 0, te = 0, v = 0):
         i.pop(0)
         
 
-    return (train, test, validate)
+    return train, test, validate
  
 
 def decision_class_nr():
